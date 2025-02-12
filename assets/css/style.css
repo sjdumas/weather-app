@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+	--font-family: "Inter", "Helvetica Neue", sans-serif;
+	--background-color: #ffffff;
+	--text-color: #222222;
+	--simply-white: #ffffff;
+	--simply-grey: #f8f9fa;
+	--primary-color: #007bff;
+	--hover-color: #0056b3;
+	--secondary-color: #6c757d;
+	--border-color: #ced4da;
+	--error-color: #dc3545;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: var(--font-family);
+	font-size: 1rem;
+	font-weight: 400;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+main {
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	max-width: 650px;
+	margin: 0 auto;
+}
+
+input[type="text"] {
+	appearance: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 400;
+	padding: 0.5rem;
+	border: 1px solid var(--border-color);
+	background-color: var(--simply-grey);
+	border-radius: 0.25rem;
+	width: 70%;
+}
+
+input:focus {
+	outline: none;
+	border-color: var(--primary-color);
+}
+
+button {
+	font-family: inherit;
+	font-size: 1.25rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 0.25rem;
+	padding: 0.75rem;
+	background-color: var(--primary-color);
+	color: var(--simply-white);
+	cursor: pointer;
+	width: 30%;
+}
+
+button:hover {
+	background-color: var(--hover-color);
+}
+
+::placeholder {
+	color: var(--secondary-color);
+}
+
+.container {
+	padding: 2rem 1rem;
+}
