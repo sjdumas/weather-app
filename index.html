@@ -10,12 +10,31 @@
 
 <body>
     <main>
-        <div class="container">
+        <header>
             <h1>Weather App</h1>
             <form>
-                <input type="text" name="location" id="location" placeholder="Enter your location..." required>
-                <button type="submit" id="get-weather">Get My Weather</button>
+                <input type="text" name="location" id="location" placeholder="Enter a location..."
+                    aria-label="Enter location" required>
+                <button type="submit" id="get-weather">Get Weather</button>
             </form>
+        </header>
+        <div class="container">
+            <p class="error"></p>
+            <div id="weather-data">
+                <div class="weather-data-container">
+                    <p class="conditions"></p>
+                    <h2 class="location"></h2>
+                    <div class="temp">
+                        <span class="num"></span>
+                        <span class="degrees">°F</span>
+                    </div>
+                    <div class="weather-info">
+                        <h5 class="feels-like"></h5>
+                        <h5 class="wind"></h5>
+                        <h5 class="humidity"></h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <script src="./assets/js/script.js"></script>
