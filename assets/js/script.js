@@ -9,6 +9,8 @@ const humidityText = document.querySelector(".humidity");
 const conditionsText = document.querySelector(".conditions");
 const locationText = document.querySelector(".location");
 
+let isCelsius = false;
+
 const createWeatherRequest = (location) => {
 	return new Request(
 		`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(
@@ -70,9 +72,36 @@ form.addEventListener("submit", (event) => {
 });
 
 const updateTemperatureDisplay = (temp, feelsLike) => {
-	tempText.textContent = `${Math.round(temp)}`;
-	feelsLikeText.textContent = `Feels Like: ${Math.round(feelsLike)}°F`;
+	const convertedTemp = isCelsius ? fahrenheitToCelsius(temp) : temp;
+	const convertedFeelsLike = isCelsius
+		? fahrenheitToCelsius(feelsLike)
+		: feelsLike;
+	const unit = isCelsius ? "°C" : "°F";
+
+	tempText.textContent = `${Math.round(convertedTemp)}${unit}`;
+	feelsLikeText.textContent = `Feels Like: ${Math.round(
+		convertedFeelsLike
+	)}${unit}`;
 };
+
+const fahrenheitToCelsius = (fahrenheit) => {
+	return ((fahrenheit - 32) * 5) / 9;
+};
+
+const toggleTemperatureUnit = () => {
+	isCelsius = !isCelsius;
+	const togglerLink = document.getElementById("toggler");
+	togglerLink.textContent = `View in ${isCelsius ? "°F" : "°C"}`;
+
+	const lastLocation = locationText.textContent;
+	if (lastLocation) {
+		displayWeather(lastLocation);
+	}
+};
+
+document
+	.getElementById("toggler")
+	.addEventListener("click", toggleTemperatureUnit);
 
 // Display the initial location
 displayWeather("New York, United States");
